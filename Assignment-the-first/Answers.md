@@ -14,6 +14,20 @@
     1. Use markdown to insert your 4 histograms here.
     2. **YOUR ANSWER HERE**
     3. **YOUR ANSWER HERE**
+
+
+What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
+
+How many indexes have undetermined (N) base calls? (Utilize your command line tool knowledge. Submit the command(s) you used. CHALLENGE: use a one-line command)
+
+```
+zcat ${dir}1294_S1_L008_R2_001.fastq.gz | sed -n 2~4p |  grep -c "N"
+>3976613
+
+zcat ${dir}1294_S1_L008_R3_001.fastq.gz | sed -n 2~4p |  grep -c "N"
+3328051
+```
+
     
 ## Part 2
 1. Define the problem
