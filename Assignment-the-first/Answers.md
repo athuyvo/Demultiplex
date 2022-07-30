@@ -51,6 +51,7 @@ zcat ${dir}1294_S1_L008_R3_001.fastq.gz | sed -n 2~4p |  grep -c "N"
 We want to demultiplex 24 samples and find any indices that were swapped, have undetermined index-pairss and/or have indices that are below our quality score cut off.  
 
 2. Describe output
+
 We should get 24 output FASTQ files for matched indices for R1 and 24 FASTQ files for R2. There should also be two unknown fastq files for R1 and R2 for undetermined or low quality indices. There should also be two fastq files for R1 and R2 hopped indices. 
 
 5. Upload your [4 input FASTQ files](../TEST-input_FASTQ) and your [>=6 expected output FASTQ files](../TEST-output_FASTQ).
