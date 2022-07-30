@@ -1,0 +1,91 @@
+create a txt file of indices used
+
+create global variable index_list
+create global fastq record dictionary
+
+def create_index_list(index_file):
+    take an input index file 
+    parse through file
+    create a dictionary of indices 
+    return dictionary
+
+    test example: 
+    input = "file"
+    output = {B1:GTAGCGTA, A5:CGATCGAT}   
+
+def check_index (index):
+    check to see if index exists in index_list
+    return a boolean 
+
+    test example: 
+    input = AAA
+    return = TRUE if exists 
+    
+
+def reverse_complement (input sequence):
+    take input sequence
+    return reverse complement 
+
+    test example: 
+    input "ATCG"
+    return "CGAT"
+    
+def quality_score(phred_score):
+    taken input phred_score from sequence record 
+    return quality score
+    
+    test example: 
+    input "I"
+    return 40
+
+def save_record(string, list):
+    save current fastq record in a dictionary
+    R1: read 1 fastq record 
+    R4: read 2 fastq record 
+
+    return a dictionary
+
+    test example: 
+    input: "R1", [@seq1, NACAGCGA, +, #AAAFJJJ]
+    output: {R1: [@seq1, NACAGCGA, +, #AAAFJJJ]}
+
+def write_record(list, index , file):
+    write out fastq record with reverse complement of index2 in header to given output file
+    
+    test example: 
+    input: [@seq1, NACAGCGA, +, #AAAFJJJ], NACAGCGA, "unk_R1.fq"]
+    output: ">@seq1_NACAGCGA-NACAGCGA" to file "unk_R1.fq"
+            
+Parse through all files together simultaneously
+
+Reverse complement index2 from R3 file, save as variable. 
+Save current FASTQ record for each read in a dictionary with reverse complement index 2.
+
+Parse through each record and look at header of R1 and R2 to see if there are any Ns in index (undetermined). 
+What header looks like: @<instrument>:<run number>:<flowcell ID>:<lane>:<tile>:<x-pos>:<y-pos>:<UMI> <read>:<is filtered>:<control number>:<index> 
+    
+    If yes,
+        write each read to undetermined index files R1 in file format of "unk_R1.fq" and R2 in file format of "unk_R2.fq" 
+        
+    If no, check to see if index1 and index2 match, 
+        if no, 
+            check to see if index1 and index2 exists in index dictionary:
+
+            if yes,
+                write R1 and R2 to "hopped_R1.fq" and "hopped_R2.fq" 
+                
+            else they are unknown indices
+                write R1 fastq record to "unk_R1.fq" and R2 to "unk_R2.fq"
+    
+        If yes indices matched, 
+            check quality score for each base position in both indices(line 4): 
+            if any bases are below set qscore 
+                write R1 fastq record to "unk_R1.fq" and R2 to "unk_R2.fq" 
+            
+            else it's a match and good quality: 
+                write R1 fastq record to "index1barcode_R1.fq" and R2 fastq record to "index2barcode_R2.fq"
+
+parse through each output file and find number of records for index-hopped, unknown, and properly matched.     
+
+
+
