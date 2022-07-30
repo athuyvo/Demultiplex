@@ -12,9 +12,16 @@
 
 2. Per-base NT distribution
     1. Use markdown to insert your 4 histograms here.
-    2. ![](https://github.com/athuyvo/Demultiplex/blob/11454d8e951426719f60da4a5e9fc0f55a9e2b19/Assignment-the-first/1294_S1_L008_R1_001.png)
-    3. 101 for R1 and R4. 8bps for R2 and R4
-    4. +33
+    Read1:
+    ![](https://github.com/athuyvo/Demultiplex/blob/11454d8e951426719f60da4a5e9fc0f55a9e2b19/Assignment-the-first/1294_S1_L008_R1_001.png)
+    Read2:
+    ![](https://github.com/athuyvo/Demultiplex/blob/master/Assignment-the-first/1294_S1_L008_R2_001.png)
+    Read3:
+    ![](https://github.com/athuyvo/Demultiplex/blob/master/Assignment-the-first/1294_S1_L008_R3_001.png)
+    Read4:
+    ![](https://github.com/athuyvo/Demultiplex/blob/master/Assignment-the-first/1294_S1_L008_R4_001.png)
+    4. 101 for R1 and R4. 8bps for R2 and R4
+    5. +33
 
 
 What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
